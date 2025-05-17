@@ -7,7 +7,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
-    "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix"
+    "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:css": "npx stylelint \"**/*.scss\"",
+    "lint:css:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,8 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.1.0",
     "sass": "^1.88.0",
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard-scss": "^15.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
     "vite": "^6.3.5",

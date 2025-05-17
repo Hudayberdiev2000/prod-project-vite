@@ -10,13 +10,13 @@ export const Layout = () => {
 
   return (
     <div className={classNames("app", {}, [theme])}>
-        <Suspense fallback="">
-          <Navbar />
-          <div className="content-page">
-            <Sidebar />
-            <Outlet />
-          </div>
-        </Suspense>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          <Outlet />
+        </div>
+      </Suspense>
     </div>
   )
 }

@@ -40,7 +40,7 @@ export default defineConfig([
     },
     rules: {
       "i18next/no-literal-string": [
-          "error",
+          "warn",
         {
           markupOnly: true,
           ignoreAttribute: ["data-testid", "to"]

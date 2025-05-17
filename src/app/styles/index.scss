@@ -1,0 +1,17 @@
+@use "./reset";
+@use "./variables/global";
+@use "./theme/normal";
+@use "./theme/dark";
+
+.app {
+  font: var(--font-m);
+
+  background: var(--bg-color);
+  color: var(--primary-color);
+
+  min-height: 100vh;
+}
+
+.content-page {
+  display: flex;
+}

@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import path from "path"
 import { defineConfig } from "vite"
 import checker from "vite-plugin-checker"
@@ -15,6 +16,7 @@ export default defineConfig({
     namespaceResolution: 'basename',
   })
   ],
+  test: {},
   server: { open: true, port: 3000 },
   resolve: {
     alias: {

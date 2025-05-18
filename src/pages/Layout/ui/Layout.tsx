@@ -14,7 +14,9 @@ export const Layout = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <Outlet />
+          <div className="page-wrapper">
+            <Outlet />
+          </div>
         </div>
       </Suspense>
     </div>

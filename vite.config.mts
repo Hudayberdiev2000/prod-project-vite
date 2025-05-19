@@ -5,6 +5,7 @@ import checker from "vite-plugin-checker"
 import react from "@vitejs/plugin-react"
 import svgr from "vite-plugin-svgr"
 import i18nextLoader from 'vite-plugin-i18next-loader'
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   plugins: [
@@ -14,7 +15,11 @@ export default defineConfig({
     i18nextLoader({
     paths: ['public/locales'],
     namespaceResolution: 'basename',
-  })
+  }),
+    visualizer({
+      // open: true, // Opens the report automatically
+      gzipSize: true, // Shows gzipped sizes
+    })
   ],
   test: {},
   server: { open: true, port: 3000 },

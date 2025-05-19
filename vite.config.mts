@@ -21,7 +21,13 @@ export default defineConfig({
       gzipSize: true, // Shows gzipped sizes
     })
   ],
-  test: {},
+
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ["src/shared/lib/test/setup.ts"],
+  },
+
   server: { open: true, port: 3000 },
   resolve: {
     alias: {

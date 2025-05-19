@@ -1,10 +1,13 @@
 import { AppRouter } from "./RouterProvider"
 import { ThemeProvider } from "./ThemeProvider"
+import ErrorBoundary from "~app/providers/ErrorBoundary";
 
 export const Provider = () => {
   return (
-    <ThemeProvider>
-      <AppRouter />
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </ErrorBoundary>
   )
 }

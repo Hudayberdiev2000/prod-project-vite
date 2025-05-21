@@ -36,6 +36,6 @@
       "~shared/*": ["./shared/*"]
     }
   },
-  "include": ["src"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", ".storybook/**/*.ts", "vitest.shims.d.ts", "vitest.workspace.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,16 +1,16 @@
 import {fireEvent, screen} from '@testing-library/react'
 import {expect} from "vitest";
 import {Sidebar} from "~widgets/Sidebar";
-import {renderWithTranslation} from "~shared/lib/test/renderWithTranslation";
+import {ComponentRender} from "~shared/lib/test/componentRender/componentRender";
 
 describe("Sidebar", () => {
     it("renders correctly", () => {
-        renderWithTranslation(<Sidebar />)
+        ComponentRender(<Sidebar />)
         expect(screen.getByTestId("sidebar")).toBeInTheDocument()
     })
 
     it('should toggle sidebar', () => {
-        renderWithTranslation(<Sidebar />)
+        ComponentRender(<Sidebar />)
         const sidebar = screen.getByTestId("sidebar")
         expect(sidebar).toBeInTheDocument()
         fireEvent.click(screen.getByTestId('sidebar-toggle'))

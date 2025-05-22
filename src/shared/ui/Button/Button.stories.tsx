@@ -3,7 +3,7 @@ import {fn} from '@storybook/test';
 import {ThemeDecorator} from "~shared/config/storybook"
 
 
-import {Button, ThemeButton} from './Button';
+import {Button, ButtonSize, ThemeButton} from './Button';
 import {Theme} from "~app/providers/ThemeProvider/lib/ThemeContext";
 
 const meta = {
@@ -60,5 +60,54 @@ export const OutlineDark: Story = {
     args: {
         theme: ThemeButton.OUTLINE,
         children: "Test"
+    },
+};
+
+export const Background: Story = {
+    args: {
+        theme: ThemeButton.BACKGROUND,
+        children: "Test"
+    },
+};
+
+export const Background_inverted: Story = {
+    args: {
+        theme: ThemeButton.BACKGROUND_INVERTED,
+        children: "Test"
+    },
+};
+
+export const Square: Story = {
+    args: {
+        theme: ThemeButton.BACKGROUND_INVERTED,
+        children: ">",
+        square:true
+    },
+};
+
+export const SquareSizeM: Story = {
+    args: {
+        theme: ThemeButton.BACKGROUND_INVERTED,
+        children: ">",
+        square:true,
+        size: ButtonSize.M
+    },
+};
+
+export const SquareSizeL: Story = {
+    args: {
+        theme: ThemeButton.BACKGROUND_INVERTED,
+        children: ">",
+        square:true,
+        size: ButtonSize.L
+    },
+};
+
+export const SquareSizeXL: Story = {
+    args: {
+        theme: ThemeButton.BACKGROUND_INVERTED,
+        children: ">",
+        square:true,
+        size: ButtonSize.XL
     },
 };

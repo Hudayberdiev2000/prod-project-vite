@@ -6,9 +6,6 @@
   position: relative;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
 
 .switchers {
   position: absolute;
@@ -20,4 +17,50 @@
 
 .lang {
   margin-left: 20px;
+  opacity: 1;
+}
+
+.collapsedBtn {
+  position: absolute;
+  bottom: 32px;
+  right: -32px;
+}
+
+.item {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.link {
+   margin-left: 10px;
+  transition: opacity 0.2s;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+
+  .link {
+    opacity: 0;
+    width: 0;
+  }
 }

@@ -26,6 +26,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ["src/shared/lib/test/setup.ts"],
+    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+    exclude: ['**/*.stories.{js,ts,jsx,tsx}'],
   },
 
   server: { open: true, port: 3000 },

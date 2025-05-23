@@ -30,7 +30,7 @@ export default defineConfig({
     exclude: ['**/*.stories.{js,ts,jsx,tsx}'],
   },
 
-  server: { open: true, port: 3000 },
+  server: { open: true, port: 3001 },
   resolve: {
     alias: {
       "~app": path.resolve(__dirname, "src/app"),

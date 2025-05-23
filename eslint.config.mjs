@@ -3,6 +3,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import i18next from "eslint-plugin-i18next"
+import reactHooksPlugin from "eslint-plugin-react-hooks"
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
@@ -32,6 +33,16 @@ export default defineConfig([
       "react/jsx-indent": [2,2],
       "@typescript-eslint/no-unused-vars": "off",
     },
+  },
+  {
+    // Add React Hooks plugin configuration
+    plugins: {
+      "react-hooks": reactHooksPlugin,
+    },
+    rules: {
+      "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+      "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+    }
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],

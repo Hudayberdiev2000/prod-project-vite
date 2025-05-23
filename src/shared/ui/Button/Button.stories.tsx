@@ -39,6 +39,13 @@ export const Clear: Story = {
     },
 };
 
+export const Clear_inverted: Story = {
+    args: {
+        theme: ThemeButton.CLEAR_INVERTED,
+        children: "Test"
+    },
+};
+
 export const ClearDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     args: {

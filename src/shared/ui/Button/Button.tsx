@@ -5,6 +5,7 @@ import { FC, HtmlHTMLAttributes } from "react"
 export enum ThemeButton {
   PRIMARY = "primary",
   CLEAR = "clear",
+  CLEAR_INVERTED = "clear_inverted",
   OUTLINE = "outline",
   BACKGROUND = "background",
   BACKGROUND_INVERTED = "background-inverted",

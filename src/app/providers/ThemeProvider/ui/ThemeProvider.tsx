@@ -15,7 +15,8 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   const { children, initialTheme } = props
-  const [theme, setTheme] = useState( initialTheme || defaultTheme)
+  const firstTheme: Theme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || initialTheme || defaultTheme
+  const [theme, setTheme] = useState(firstTheme)
 
   const defaultValue = useMemo(
     () => ({

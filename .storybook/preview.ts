@@ -1,9 +1,21 @@
 import type {Preview} from '@storybook/react'
-import {RouterDecorator, StyleDecorator, ThemeDecorator} from "~shared/config/storybook";
+import {RouterDecorator, StoreDecorator, StyleDecorator, ThemeDecorator} from "~shared/config/storybook";
 import {Theme} from "~app/providers/ThemeProvider/lib/ThemeContext";
+import {TranslationDecorator} from "~shared/config/storybook/TranslationDecorator/TranslationDecorator";
 
 const preview: Preview = {
-    decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator],
+    decorators: [
+        StyleDecorator,
+        ThemeDecorator(Theme.LIGHT),
+        RouterDecorator,
+        StoreDecorator({
+        loginForm: {
+            username: "asdf",
+            password: "dsiuyf"
+        }
+    }),
+        TranslationDecorator
+    ],
   parameters: {
     controls: {
       matchers: {

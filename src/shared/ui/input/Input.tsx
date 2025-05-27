@@ -34,9 +34,10 @@ export const Input = (props:InputProps ) => {
         setCaretPosition(e.target.selectionStart ?? 0)
     }
 
-    const onSelect = (e: any) => {
-        setCaretPosition(e?.target?.selectionStart ?? 0)
-    }
+    const onSelect = (e: React.SyntheticEvent<HTMLInputElement>) => {
+        const target = e.currentTarget;
+        setCaretPosition(target.selectionStart ?? 0);
+    };
 
     return (
       <div   className={classNames(styles.InputWrapper, {}, [className])}>

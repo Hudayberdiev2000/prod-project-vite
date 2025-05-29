@@ -3,13 +3,17 @@ import styles from "./LoginForm.module.scss"
 import {useTranslation} from "react-i18next"
 import {Button, ThemeButton} from "~shared/ui/Button/Button";
 import {Input} from "~shared/ui/input/Input";
-import {useSelector} from "react-redux";
-import {memo, useCallback} from "react";
-import {loginActions} from "../../model/slice/loginSlice";
-import {getLoginState} from "~features/authByUsername/model/selectors/getLoginState/getLoginState";
+import {useSelector, useStore} from "react-redux";
+import {memo, useCallback, useEffect} from "react";
+import {loginActions, loginReducer} from "../../model/slice/loginSlice";
 import {loginByUsername} from "~features/authByUsername/model/services/loginByUsername/loginByUsername";
 import {useAppDispatch} from "~shared/hooks/useAppDispatch";
 import {Text, TextTheme} from "~shared/ui/Text/Text";
+import {ReduxStoreWithManager} from "~app/providers/StoreProvider";
+import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
+import {getLoginLoading} from "../../model/selectors/getLoginLoading/getLoginLoading";
+import {getLoginError} from "../../model/selectors/getLoginError/getLoginError";
+import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
 
 export interface LoginFormProps {
     className?: string
@@ -18,7 +22,21 @@ export interface LoginFormProps {
 const LoginForm = memo(({ className }:LoginFormProps ) => {
     const { t } = useTranslation()
     const dispatch = useAppDispatch()
-    const {username, password, error, isLoading} = useSelector(getLoginState)
+    const store = useStore() as ReduxStoreWithManager
+
+    useEffect(() => {
+        store.reduxManager?.add('loginForm', loginReducer)
+
+        return () => {
+            store.reduxManager.remove('loginForm')
+        }
+        // eslint-disable-next-line
+    }, []);
+
+    const username = useSelector(getLoginUsername)
+    const password = useSelector(getLoginPassword)
+    const isLoading = useSelector(getLoginLoading)
+    const error = useSelector(getLoginError)
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value))

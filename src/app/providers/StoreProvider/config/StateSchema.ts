@@ -1,7 +1,9 @@
 import {CounterSchema} from "~entities/counter";
 import {UserSchema} from "~entities/user";
 import {LoginSchema} from "~features/authByUsername";
-import {AnyAction, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
+import {Action, EnhancedStore, Reducer,  ThunkDispatch} from "@reduxjs/toolkit";
+import {staticReducers} from "~app/providers/StoreProvider/config/store";
+import {createReducerManager} from "~app/providers/StoreProvider/config/reducerManager";
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -11,12 +13,17 @@ export interface StateSchema {
 
 export type StateSchemaKey = keyof StateSchema
 
-export interface ReducerManager {
-    getReducerMap: () => ReducersMapObject<StateSchema>,
-    reduce: (state: StateSchema, action: AnyAction) => StateSchema,
-    add: (key: StateSchemaKey, reducer: Reducer) => void,
-    remove: (key: StateSchemaKey) => void,
+export type Reducers = Record<StateSchemaKey, Reducer>
+
+export type StaticReducers = typeof  staticReducers
+
+export type ReducerManager = ReturnType<typeof createReducerManager>
+
+export interface AppStore extends EnhancedStore<StateSchema> {
+    reducerManager: ReducerManager
 }
+
+export type AppDispatch = ThunkDispatch<StateSchema, undefined, Action>
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reduxManager: ReducerManager

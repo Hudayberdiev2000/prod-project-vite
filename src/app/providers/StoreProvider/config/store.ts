@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {StateSchema} from "./StateSchema";
+import {ReduxStoreWithManager, StateSchema} from "./StateSchema";
 import {counterReducer} from "~entities/counter";
 import {userReducer} from "~entities/user";
 import {createReducerManager} from "./reducerManager";
@@ -9,26 +9,23 @@ export const staticReducers = {
   user: userReducer,
 }
 
+const reducerManager = createReducerManager(
+    staticReducers)
+
 export  function createReduxStore(initialState?: StateSchema) {
 
-    const reducerManager = createReducerManager(
-        staticReducers)
-
-    const store = configureStore<StateSchema>(
+    const store = configureStore(
         {
         reducer: reducerManager.reduce,
         devTools: import.meta.env.VITE_IS_DEV === "true",
         preloadedState: initialState
-    })
+    }) as ReduxStoreWithManager
 
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-  store.reducerManager = reducerManager
+    store.reducerManager = reducerManager
 
     return store
 }
 
 
 export const store = createReduxStore()
-export type AppDispatch = typeof store.dispatch

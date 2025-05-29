@@ -19,13 +19,8 @@ export type StaticReducers = typeof  staticReducers
 
 export type ReducerManager = ReturnType<typeof createReducerManager>
 
-export interface AppStore extends EnhancedStore<StateSchema> {
-    reducerManager: ReducerManager
-}
-
 export type AppDispatch = ThunkDispatch<StateSchema, undefined, Action>
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
-    reduxManager: ReducerManager
+    reducerManager: ReducerManager
 }
-

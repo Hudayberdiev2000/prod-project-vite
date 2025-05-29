@@ -25,11 +25,11 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const store = useStore() as ReduxStoreWithManager
 
   useEffect(() => {
-    store.reduxManager?.add("loginForm", loginReducer)
+    store.reducerManager.add("loginForm", loginReducer)
       dispatch({type: "@INIT loginForm reducer"})
 
     return () => {
-      store.reduxManager.remove("loginForm")
+      store.reducerManager.remove("loginForm")
         dispatch({type: "@DESTROY loginForm reducer"})
     }
     // eslint-disable-next-line

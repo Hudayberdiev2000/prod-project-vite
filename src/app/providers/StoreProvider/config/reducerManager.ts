@@ -1,5 +1,10 @@
 import {Action, combineReducers, Reducer} from "@reduxjs/toolkit";
-import { Reducers, StateSchema, StateSchemaKey, StaticReducers} from "./StateSchema";
+import {
+    Reducers,
+    StateSchema,
+    StateSchemaKey,
+    StaticReducers
+} from "./StateSchema";
 
 
 

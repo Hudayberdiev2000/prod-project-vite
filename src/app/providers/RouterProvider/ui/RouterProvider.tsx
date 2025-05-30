@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Layout } from "~pages/Layout"
 import { routerConfig } from "~shared/config/routerConfig/routerConfig"
 import {PageLoader} from "~widgets/PageLoader";
-import {useAppDispatch} from "~shared/hooks/useAppDispatch";
 import {userActions} from "~entities/user";
+import {useAppDispatch} from "~shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export const AppRouter = () => {
     const dispatch = useAppDispatch()

@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore} from '@reduxjs/toolkit'
 import {ReduxStoreWithManager, StateSchema} from "./StateSchema";
 import {counterReducer} from "~entities/counter";
 import {userReducer} from "~entities/user";
@@ -29,3 +29,5 @@ export  function createReduxStore(initialState?: StateSchema) {
 
 
 export const store = createReduxStore()
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

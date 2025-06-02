@@ -2,8 +2,8 @@ import styles from "./ProfileCard.module.scss"
 import {classNames} from "~shared/lib/classNames/classNames";
 import {useSelector} from "react-redux";
 import {getProfileData} from "~entities/profile/model/selectors/getProfileData/getProfileData";
-import {getProfileIsLoading} from "~entities/profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
-import {getProfileError} from "~entities/profile/model/selectors/getProfileError/getProfileError";
+// import {getProfileIsLoading} from "~entities/profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
+// import {getProfileError} from "~entities/profile/model/selectors/getProfileError/getProfileError";
 import {useTranslation} from "react-i18next";
 import {Text} from "~shared/ui/Text/Text";
 import {Button, ThemeButton} from "~shared/ui/Button/Button";
@@ -17,8 +17,8 @@ export const ProfileCard = ({ className }:ProfileCardProps ) => {
     const {t} = useTranslation('profile');
 
     const data = useSelector(getProfileData)
-    const isLoading = useSelector(getProfileIsLoading)
-    const error = useSelector(getProfileError)
+    // const isLoading = useSelector(getProfileIsLoading)
+    // const error = useSelector(getProfileError)
 
     return (
       <div className={classNames(styles.ProfileCard, {}, [className])}>

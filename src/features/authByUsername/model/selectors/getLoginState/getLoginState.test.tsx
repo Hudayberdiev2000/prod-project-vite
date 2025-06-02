@@ -12,6 +12,7 @@ describe("getLoginState.test", () => {
         error: "error",
       },
     }
+
     expect(getLoginState(state as StateSchema)).toEqual({
       username: "admin",
       password: "123",

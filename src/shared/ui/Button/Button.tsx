@@ -36,7 +36,10 @@ export const Button: FC<ButtonProps> = memo((props) => {
     ...otherProps
   } = props
 
-  const mods: Record<string, boolean> = {[cls.square]: square, [cls.disabled]: disabled}
+  const mods: Record<string, boolean> = {
+    [cls.square]: square,
+    [cls.disabled]: disabled
+  }
 
   return (
     <button

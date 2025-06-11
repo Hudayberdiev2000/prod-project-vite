@@ -16,7 +16,7 @@ export const loginByUsername = createAsyncThunk<User,
     'login/loginByUsername',
     async (authData, { dispatch, rejectWithValue}) => {
         try {
-            const res = await axios.post<User>('/login', authData)
+            const res = await axios.post<User>('http://localhost:8000/login', authData)
             if(!res.data) throw new Error()
 
             localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(res.data))
